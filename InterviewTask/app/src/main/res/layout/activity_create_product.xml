@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.example.interviewtask.model.Product" />
+
+        <variable
+            name="vm"
+            type="com.example.interviewtask.ui.create_product.CreateProductVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/header"
+            app:vm="@{vm}" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/sivProfile"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_dummy_img"
+                    android:theme="@style/CornerCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="@dimen/_7sdp" />
+
+                <ImageView
+                    android:id="@+id/ivEdit"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:background="@color/gray_f2"
+                    android:elevation="@dimen/_10sdp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/sivProfile"
+                    app:layout_constraintEnd_toEndOf="@+id/sivProfile" />
+
+                <!--
+                Class = Product
+                Fields
+                id
+                name
+                description
+                regular price
+                sale price
+                product photo (image)
+                colors (array)
+                stores (dictionary)
+                */
+                -->
+
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sivProfile" />
+
+                <EditText
+                    android:id="@+id/etProductName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/background_10_rounded"
+                    android:backgroundTint="@color/gray_f2"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical"
+                    android:hint="@string/enter_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@{bean.name}"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+                    tools:ignore="UnusedAttribute" />
+
+
+                <TextView
+                    android:id="@+id/tvCategoryName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etProductName" />
+
+
+                <EditText
+                    android:id="@+id/etProductDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/background_10_rounded"
+                    android:backgroundTint="@color/gray_f2"
+                    android:gravity="start"
+                    android:hint="Enter Description"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapWords"
+                    android:minHeight="@dimen/_60sdp"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@{bean.description}"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCategoryName"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/tvNormalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Normal Price"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etProductDescription" />
+
+                <EditText
+                    android:id="@+id/etNormalPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/background_10_rounded"
+                    android:backgroundTint="@color/gray_f2"
+                    android:gravity="center_vertical"
+                    android:hint="Normal Price"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@{bean.regular_price.toString()}"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNormalPrice"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/tvSalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Sale Price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etNormalPrice" />
+
+                <EditText
+                    android:id="@+id/etSalePrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/background_10_rounded"
+                    android:backgroundTint="@color/gray_f2"
+                    android:gravity="start"
+                    android:hint="Sale Price"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@{bean.sale_price.toString()}"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSalePrice"
+                    tools:ignore="UnusedAttribute" />
+
+
+                <TextView
+                    android:id="@+id/tvSelectColors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Select Colors"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etSalePrice" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMembers"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/background_10_rounded"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_13sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSelectColors" />
+
+
+                <TextView
+                    android:id="@+id/tvCreate"
+                    style="@style/Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="Create"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvMembers" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

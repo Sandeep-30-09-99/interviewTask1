@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!--<external-files-path
+        name="my_images"
+        path="Android/data/com.rk_tech.takin_pos/files/pdf" />-->
+
+    <external-path
+        name="external"
+        path="." />
+    <external-files-path
+        name="external_files"
+        path="." />
+    <cache-path
+        name="cache"
+        path="." />
+    <external-cache-path
+        name="external_cache"
+        path="." />
+    <files-path
+        name="files"
+        path="." />
+
+</paths>

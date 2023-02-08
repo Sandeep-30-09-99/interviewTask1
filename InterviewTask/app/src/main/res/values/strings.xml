@@ -1,3 +1,12 @@
 <resources>
+    <string name="name">Name</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="desc">Enter Description </string>
+    <string name="neccessary_permission">These permissions are necessary for the task.</string>
     <string name="app_name">InterviewTask</string>
+    <string name="near_market">Find Nearest Local \nMarket</string>
+    <string name="app_description"><![CDATA[O On-Time Departures. Pay just for your seat. No Refusal from our end. Spacious & Comfortable Seating. Female passengers safety standards. Onboard Refreshments. Cab Tracking through Maps]]></string>
+    <string name="best_mrk">Best MarketPlace</string>
+    <string name="phone_number">Phone Number</string>
+
 </resources>

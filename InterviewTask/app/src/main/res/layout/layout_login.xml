@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.interviewtask.ui.base.BaseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Enter your Mobile\nNumber"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".2" />
+
+        <TextView
+            android:id="@+id/txtHlo"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Hello, Welcome Back to Our Account"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:elevation="@dimen/_2sdp"
+            app:ccp_contentColor="@color/black"
+            app:ccp_countryPreference="+91"
+            app:ccp_defaultPhoneCode="91"
+            app:ccp_showNameCode="false"
+            app:ccp_showPhoneCode="true"
+            app:ccp_textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHlo" />
+
+        <EditText
+            android:id="@+id/tvPhone"
+            style="@style/EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/background_10_rounded"
+            android:backgroundTint="@color/gray_f2"
+            android:drawablePadding="@dimen/_5sdp"
+            android:hint="@string/phone_number"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:padding="@dimen/_13sdp"
+            android:paddingStart="@dimen/_45sdp"
+            android:textAlignment="center"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/ccp"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/ccp"
+            app:layout_constraintTop_toTopOf="@id/ccp" />
+
+
+        <TextView
+            android:id="@+id/tvGetStarted"
+            style="@style/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_6sdp"
+            android:text="Get Started"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+        <TextView
+            android:id="@+id/txtLoginwith"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Login with"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted" />
+
+
+        <ImageView
+            android:id="@+id/gLogo"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/google_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
+
+        <TextView
+            android:id="@+id/txtGoogle"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Google"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/gLogo"
+            app:layout_constraintStart_toEndOf="@+id/gLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted"
+            app:layout_constraintTop_toTopOf="@+id/gLogo" />
+
+
+        <ImageView
+            android:id="@+id/fLogo"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/fb"
+            app:layout_constraintStart_toEndOf="@+id/txtGoogle"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
+
+        <TextView
+            android:id="@+id/txtFb"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Facebook"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/fLogo"
+            app:layout_constraintStart_toEndOf="@+id/fLogo"
+            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted"
+            app:layout_constraintTop_toTopOf="@+id/fLogo" />
+
+        <TextView
+            android:id="@+id/passcode"
+            style="@style/TextView.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="By creating passcode you agree with our Terms &amp; Conditions and Privacy Policy"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtGoogle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

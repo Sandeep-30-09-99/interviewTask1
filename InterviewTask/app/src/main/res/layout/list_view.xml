@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
+
         <variable
             name="bean"
-            type="com.example.interviewtask.model.Data" />
+            type="com.example.interviewtask.model.Product" />
+
+        <variable
+            name="pos"
+            type="Integer" />
 
         <variable
             name="callback"
@@ -18,47 +24,93 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/ivDownload"
+            android:id="@+id/ivDelete"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:onClick="@{v->callback.onViewClick(v,bean)}"
+
+            android:layout_margin="5dp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
             android:padding="3dp"
-            android:src="@drawable/ic_baseline_file_download_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
+            android:padding="3dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivDelete" />
 
         <ImageView
             android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:onClick="@{v->callback.onViewClick(v,bean)}"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_dummy_img"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".4" />
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv" />
 
         <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
+            android:id="@+id/tvProductName"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:onClick="@{v->callback.onViewClick(v,bean)}"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
+            android:paddingHorizontal="@dimen/_5sdp"
             android:text="@{bean.name}"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintStart_toEndOf="@+id/iv"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="File Name" />
+
+        <TextView
+            android:id="@+id/tvNormalPrice"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text='@{"$ "+bean.regular_price.toString()}'
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+            tools:text="$ 7.59" />
+
+        <TextView
+            android:id="@+id/tvSalePrice"
+            style="@style/TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:onClick="@{v->callback.onViewClick(v,pos,bean)}"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:text='@{"$ "+bean.sale_price.toString()}'
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv"
+            app:layout_constraintTop_toBottomOf="@+id/tvNormalPrice"
+            tools:text="$ 5.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.example.interviewtask.util.dialog.BaseCustomDialog.Listener" />
+
+        <variable
+            name="selected"
+            type="Integer" />
+
+        <variable
+            name="customAmount"
+            type="androidx.databinding.ObservableField&lt;String>" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_10_rounded_white"
+
+        android:elevation="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:id="@+id/horizontalView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/TextView.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:background="@drawable/background_10_rounded"
+            android:backgroundTint="@color/gray_f2"
+            android:elevation="@dimen/_35sdp"
+            android:gravity="center"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:paddingVertical="@dimen/_7sdp"
+            android:text="OK"
+            android:textColor="@color/blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontalView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

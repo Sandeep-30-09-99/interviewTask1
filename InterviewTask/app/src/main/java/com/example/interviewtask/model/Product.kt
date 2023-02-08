@@ -1,6 +1,14 @@
 package com.example.interviewtask.model
 
-/*Class = Product
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.interviewtask.local_storage.Converters
+import kotlinx.android.parcel.Parcelize
+
+/*
+Class = Product
 Fields
 id
 name
@@ -9,14 +17,18 @@ regular price
 sale price
 product photo (image)
 colors (array)
-stores (dictionary)*/
+stores (dictionary)
+*/
 
+@Entity(tableName = "Product")
+@Parcelize
 data class Product(
-    val id: Int?,
-    val name: String,
-    val description: String,
-    val regular_price: Float,
-    val sale_price: Float,
-    val product_photo: String,
-    val color : Array<Int>
-)
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = 0,
+    val name: String?,
+    val description: String?,
+    val regular_price: Float?,
+    val sale_price: Float?,
+    val product_photo: String?,
+    val colors: String?
+) : Parcelable
