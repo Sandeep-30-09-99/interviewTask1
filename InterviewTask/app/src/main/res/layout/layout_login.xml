@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_15sdp"
             android:padding="@dimen/_6sdp"
-            android:text="Get Started"
+            android:text="Request Otp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
@@ -110,20 +110,32 @@
             style="@style/TextView.Regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_14sdp"
             android:text="Login with"
             android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGetStarted" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent=".5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/gLogo"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:src="@drawable/google_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
+            app:layout_constraintBottom_toBottomOf="@+id/txtGoogle"
+            app:layout_constraintEnd_toStartOf="@+id/txtGoogle"
+            app:layout_constraintTop_toTopOf="@+id/txtGoogle" />
 
         <TextView
             android:id="@+id/txtGoogle"
@@ -131,22 +143,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:text="Google"
             android:textSize="@dimen/_14sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/gLogo"
-            app:layout_constraintStart_toEndOf="@+id/gLogo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted"
-            app:layout_constraintTop_toTopOf="@+id/gLogo" />
+            app:layout_constraintEnd_toStartOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
 
 
         <ImageView
             android:id="@+id/fLogo"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:src="@drawable/fb"
-            app:layout_constraintStart_toEndOf="@+id/txtGoogle"
-            app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
+            app:layout_constraintBottom_toBottomOf="@+id/txtGoogle"
+            app:layout_constraintStart_toEndOf="@+id/center"
+            app:layout_constraintTop_toTopOf="@+id/txtGoogle" />
 
         <TextView
             android:id="@+id/txtFb"
@@ -156,10 +169,10 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:text="Facebook"
             android:textSize="@dimen/_14sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/fLogo"
+            app:layout_constraintBottom_toBottomOf="@+id/txtGoogle"
             app:layout_constraintStart_toEndOf="@+id/fLogo"
             app:layout_constraintTop_toBottomOf="@+id/tvGetStarted"
-            app:layout_constraintTop_toTopOf="@+id/fLogo" />
+            app:layout_constraintTop_toTopOf="@+id/txtGoogle" />
 
         <TextView
             android:id="@+id/passcode"
@@ -167,8 +180,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="By creating passcode you agree with our Terms &amp; Conditions and Privacy Policy"
+            android:text="@string/term_and_cond"
+            android:textAlignment="center"
             android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtGoogle" />
 
