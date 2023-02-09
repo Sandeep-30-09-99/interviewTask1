@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.example.interviewtask.ui.base.BaseViewModel" />
@@ -19,6 +21,8 @@
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
+
+            android:onClick="@{v->vm.onClick(v)}"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +73,9 @@
             android:layout_width="@dimen/_20sdp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/_3sdp"
+            android:onClick="@{v->vm.onClick(v)}"
             android:padding="@dimen/_1sdp"
+
             android:src="@drawable/edit"
             app:layout_constraintBottom_toBottomOf="@+id/tvPhoneNo"
             app:layout_constraintStart_toEndOf="@+id/tvPhoneNo"
@@ -101,12 +107,14 @@
 
 
         <TextView
-            android:id="@+id/tvGetStarted"
+            android:id="@+id/tvVerify"
             style="@style/Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_15sdp"
+            android:onClick="@{v->vm.onClick(v)}"
             android:padding="@dimen/_6sdp"
+
             android:text="Verify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +130,7 @@
             android:textSize="@dimen/_14sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted" />
+            app:layout_constraintTop_toBottomOf="@+id/tvVerify" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

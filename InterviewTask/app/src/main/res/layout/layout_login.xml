@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.example.interviewtask.ui.base.BaseViewModel" />
@@ -19,6 +21,8 @@
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
+
+            android:onClick="@{v->vm.onClick(v)}"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +78,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@drawable/background_10_rounded"
             android:backgroundTint="@color/gray_f2"
@@ -94,11 +97,12 @@
 
 
         <TextView
-            android:id="@+id/tvGetStarted"
+            android:id="@+id/tvRequestOtp"
             style="@style/Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_15sdp"
+            android:onClick="@{v->vm.onClick(v)}"
             android:padding="@dimen/_6sdp"
             android:text="Request Otp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +119,7 @@
             android:textSize="@dimen/_14sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted" />
+            app:layout_constraintTop_toBottomOf="@+id/tvRequestOtp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/center"
@@ -171,7 +175,7 @@
             android:textSize="@dimen/_14sdp"
             app:layout_constraintBottom_toBottomOf="@+id/txtGoogle"
             app:layout_constraintStart_toEndOf="@+id/fLogo"
-            app:layout_constraintTop_toBottomOf="@+id/tvGetStarted"
+            app:layout_constraintTop_toBottomOf="@+id/tvRequestOtp"
             app:layout_constraintTop_toTopOf="@+id/txtGoogle" />
 
         <TextView

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.example.interviewtask.util.dialog.BaseCustomDialog.Listener" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_10_rounded_white"
+        android:elevation="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="@{v->callback.onViewClick(v)}"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/confirm_code"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.mukesh.OtpView
+            android:id="@+id/otpView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/proxima_nova_medium"
+            android:inputType="number"
+            android:itemBackground="@drawable/background_10_rounded"
+            android:textColor="@color/colorPrimary"
+            app:OtpCursorColor="@color/colorPrimary"
+            app:OtpItemCount="4"
+            app:OtpItemHeight="@dimen/_42sdp"
+            app:OtpItemRadius="@dimen/_10sdp"
+            app:OtpItemSpacing="10dp"
+            app:OtpItemWidth="@dimen/_42sdp"
+            app:OtpLineColor="@color/gray_f2"
+            app:OtpViewType="rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

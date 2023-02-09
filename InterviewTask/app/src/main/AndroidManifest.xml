@@ -21,23 +21,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
-        <!--  <activity
-              android:name=".ui.MainActivity"
-              android:exported="true">
-              <intent-filter>
-                  <action android:name="android.intent.action.MAIN" />
 
-                  <category android:name="android.intent.category.LAUNCHER" />
-              </intent-filter>
-
-              <meta-data
-                  android:name="android.app.lib_name"
-                  android:value="" />
-          </activity>
-
-  -->
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.CrashReportActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
@@ -49,23 +41,6 @@
         </activity>
 
 
-        <activity
-            android:name=".ui.CrashReportActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".ui.splash.SplashActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-
-        <activity
-            android:name=".ui.show_product.ShowProductActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".ui.create_product.CreateProductActivity"
@@ -74,7 +49,17 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity
-            android:name=".ui.view_photo.ViewPhotoActivity"
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.signup.SignupActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.verify.VerifyActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />

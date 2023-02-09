@@ -11,5 +11,6 @@
     <string name="term_and_cond"><![CDATA[By creating passcode you agree with our\nTerms & Conditions and Privacy Policy]]></string>
     <string name="enter_code">Enter your\nVerification Code</string>
     <string name="verification_code_sent">We Have sent the code verification to your mobile number</string>
+    <string name="confirm_code">Your confirmation code is \nbelow — enter it and we\'ll help \nyou get signed in.</string>
 
 </resources>

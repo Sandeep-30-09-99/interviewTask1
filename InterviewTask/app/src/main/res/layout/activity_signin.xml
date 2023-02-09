@@ -27,6 +27,8 @@
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
             android:src="@drawable/back"
+            android:id="@+id/ivBack"
+            android:onClick="@{v->vm.onClick(v)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -196,7 +198,7 @@
                     android:gravity="center_vertical"
                     android:hint="Normal Price"
                     android:imeOptions="actionNext"
-                    android:inputType="numberDecimal"
+                    android:inputType="phone"
                     android:padding="@dimen/_13sdp"
                     android:text="@{bean.regular_price.toString()}"
                     android:textSize="@dimen/_14sdp"
@@ -263,7 +265,7 @@
                     android:gravity="start"
                     android:hint="Sale Price"
                     android:imeOptions="actionNext"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:padding="@dimen/_13sdp"
                     android:text="@{bean.sale_price.toString()}"
                     android:textSize="@dimen/_14sdp"

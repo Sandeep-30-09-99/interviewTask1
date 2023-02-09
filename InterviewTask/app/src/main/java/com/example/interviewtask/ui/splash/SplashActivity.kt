@@ -10,78 +10,49 @@ import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.interviewtask.R
 import com.example.interviewtask.ui.AdapterCallback
 import com.example.interviewtask.databinding.ActivityMainBinding
+import com.example.interviewtask.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_splash.*
 
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
-    private val onDownloadComplete = object : BroadcastReceiver() {
-        override fun onReceive(p0: Context?, p1: Intent?) {
-            val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
-
-            if (downloadID === id) {
-                Toast.makeText(this@SplashActivity, "Downloaded", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@SplashActivity, "File not fount", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
     private val viewModel: SplashVM by viewModels()
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      //  Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        changeLayout()
 
-        val v = 2 / 0
-        print("" + v)
+        viewModel.onClick.observe(this, Observer {
+            when (it.id) {
+                R.id.tvGetStarted -> {
+                }
+            }
+        })
     }
 
 
-    override fun onDestroy() {
-        unregisterReceiver(onDownloadComplete)
-        super.onDestroy()
+    private fun changeLayout() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            second.visibility = View.VISIBLE
+            first.visibility = View.GONE
+        }, 1500)
     }
-
-
-
-    private var downloadID: Long? = null
-    private fun downloadFile(fileName: String, desc: String, url: String) {
-        // fileName -> fileName with extension
-        val request = DownloadManager.Request(Uri.parse(url))
-            .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
-            .setTitle(fileName).setDescription(desc)
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            .setAllowedOverMetered(true).setAllowedOverRoaming(false)
-            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
-        val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-        downloadID = downloadManager.enqueue(request)
-
-    }
-
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            this@SplashActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 12
-        )
-    }
-
-    private fun getApiData() {
-        viewModel.getApiData()
-    }
-
-
 }

@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.example.interviewtask.ui.base.BaseViewModel" />
@@ -84,6 +86,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_15sdp"
+
+            android:onClick="@{v->vm.onClick(v)}"
             android:padding="@dimen/_6sdp"
             android:text="Get Started"
             app:layout_constraintBottom_toBottomOf="parent"
