@@ -21,7 +21,7 @@
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
-
+android:id="@+id/ivBack"
             android:onClick="@{v->vm.onClick(v)}"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="@string/verification_code_sent"
             android:textSize="@dimen/_14sdp"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
             android:id="@+id/edit"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="0dp"
-            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:onClick="@{v->vm.onClick(v)}"
             android:padding="@dimen/_1sdp"
 
@@ -91,7 +92,7 @@
             android:focusableInTouchMode="true"
             android:fontFamily="@font/proxima_nova_medium"
             android:inputType="number"
-            android:itemBackground="@drawable/background_10_rounded"
+            android:itemBackground="@drawable/background_10_rounded_highligh_5"
             android:textColor="@color/colorPrimary"
             app:OtpCursorColor="@color/colorPrimary"
             app:OtpItemCount="4"
@@ -99,7 +100,8 @@
             app:OtpItemRadius="@dimen/_10sdp"
             app:OtpItemSpacing="10dp"
             app:OtpItemWidth="@dimen/_42sdp"
-            app:OtpLineColor="@color/gray_f2"
+            app:OtpLineColor="@color/highlight_color_5"
+
             app:OtpViewType="rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,16 +111,34 @@
         <TextView
             android:id="@+id/tvVerify"
             style="@style/Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_15sdp"
             android:onClick="@{v->vm.onClick(v)}"
-            android:padding="@dimen/_6sdp"
-
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_10sdp"
             android:text="Verify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/otpView" />
+
+        <!--     <TextView
+                 android:id="@+id/tvRequestOtp"
+                 style="@style/Button"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginHorizontal="@dimen/_10sdp"
+                 android:layout_marginTop="@dimen/_16sdp"
+                 android:layout_marginBottom="@dimen/_15sdp"
+                 android:backgroundTint="@color/colorPrimary"
+                 android:onClick="@{v->vm.onClick(v)}"
+                 android:paddingHorizontal="@dimen/_6sdp"
+                 android:paddingVertical="@dimen/_10sdp"
+                 android:text="Request Otp"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/tvPhone" />-->
+
 
         <TextView
             android:id="@+id/txtLoginwith"
@@ -126,8 +146,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_14sdp"
-            android:text="don't receive OTP? Resend"
+            android:text="@string/resend"
             android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvVerify" />

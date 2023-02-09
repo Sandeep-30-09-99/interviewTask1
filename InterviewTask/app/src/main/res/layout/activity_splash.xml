@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.example.interviewtask.ui.base.BaseViewModel" />
+            type="com.example.interviewtask.ui.splash.SplashVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +22,8 @@
         <include
             android:id="@+id/second"
             layout="@layout/splash_second"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:vm="@{vm}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

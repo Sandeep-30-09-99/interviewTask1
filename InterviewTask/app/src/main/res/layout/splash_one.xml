@@ -19,6 +19,7 @@
             android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:gravity="center"
             android:padding="10dp"
             android:src="@drawable/welcome"
@@ -45,10 +46,12 @@
             app:layout_constraintWidth_percent=".35" />
 
         <TextView
+            style="@style/TextView.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_15sdp"
             android:text="@string/near_market"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

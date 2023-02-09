@@ -13,8 +13,6 @@ import androidx.lifecycle.Observer
 import com.example.interviewtask.R
 import com.example.interviewtask.databinding.ActivitySplashBinding
 import com.example.interviewtask.databinding.LayoutVerifyBinding
-import com.example.interviewtask.model.Product
-import com.example.interviewtask.ui.create_product.CreateProductActivity
 import com.example.interviewtask.ui.signup.SignupActivity
 import com.example.interviewtask.util.Constant
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,6 +42,8 @@ class VerifyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = LayoutVerifyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.vm = viewModel
+
         getIntentExtras()
         listenClick()
     }
@@ -54,13 +54,16 @@ class VerifyActivity : AppCompatActivity() {
         }
         intent?.getStringExtra(Constant.CODE)?.let {
             code = it
-            binding.tvPhoneNo.text = "+$code $phoneNo"
+            binding.tvPhoneNo.text = "$code $phoneNo"
         }
     }
 
     private fun listenClick() {
         viewModel.onClick.observe(this, Observer {
             when (it.id) {
+                R.id.ivBack -> {
+                    onBackPressedDispatcher.onBackPressed()
+                }
                 R.id.tvVerify -> {
                     verifyCode()
                 }

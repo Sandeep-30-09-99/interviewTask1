@@ -5,12 +5,13 @@
     <string name="neccessary_permission">These permissions are necessary for the task.</string>
     <string name="app_name">InterviewTask</string>
     <string name="near_market">Find Nearest Local \nMarket</string>
-    <string name="app_description"><![CDATA[O On-Time Departures. Pay just for your seat. No Refusal from our end. Spacious & Comfortable Seating. Female passengers safety standards. Onboard Refreshments. Cab Tracking through Maps]]></string>
-    <string name="best_mrk">Best MarketPlace</string>
+    <string name="app_description"><![CDATA[On-Time Departures. Pay just for your seat. No Refusal from our end. Spacious & Comfortable Seating. Female passengers safety standards. Onboard Refreshments. Cab Tracking through Maps]]></string>
+    <string name="best_mrk">Best Market Place</string>
     <string name="phone_number">Phone Number</string>
-    <string name="term_and_cond"><![CDATA[By creating passcode you agree with our\nTerms & Conditions and Privacy Policy]]></string>
+    <string name="term_and_cond">By creating passcode you agree with our\n    <font color='#FF7F5D'>   Terms and Conditions</font> and <font color='#FF7F5D'>Privacy Policy  </font>   </string>
     <string name="enter_code">Enter your\nVerification Code</string>
     <string name="verification_code_sent">We Have sent the code verification to your mobile number</string>
     <string name="confirm_code">Your confirmation code is \nbelow — enter it and we\'ll help \nyou get signed in.</string>
+    <string name="resend">Don\'t receive OTP? <font color='#FF7F5D'>Resend</font></string>
 
 </resources>

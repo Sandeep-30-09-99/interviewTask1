@@ -8,12 +8,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="bean"
-            type="com.example.interviewtask.model.Product" />
-
-        <variable
             name="vm"
-            type="com.example.interviewtask.ui.create_product.CreateProductVM" />
+            type="com.example.interviewtask.ui.signup.SignVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,12 +19,12 @@
 
 
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
-            android:src="@drawable/back"
-            android:id="@+id/ivBack"
             android:onClick="@{v->vm.onClick(v)}"
+            android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/_25sdp"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:onClick="@{v->vm.onClick(v)}"
             android:paddingVertical="@dimen/_10sdp"
@@ -44,7 +41,7 @@
             android:paddingEnd="@dimen/_5sdp"
             android:text="Create Profile"
             android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
+            android:textSize="@dimen/_15ssp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,9 +63,11 @@
                     android:id="@+id/sivProfile"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
+                    android:background="@color/white"
                     android:elevation="@dimen/_5sdp"
                     android:onClick="@{v->vm.onClick(v)}"
                     android:padding="@dimen/_5sdp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/dummy_img"
                     android:theme="@style/CornerCircular"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -79,11 +78,13 @@
                     android:id="@+id/ivEdit"
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
-                    android:background="@color/gray_f2"
+                    android:background="@drawable/background_10_rounded"
+
                     android:elevation="@dimen/_10sdp"
                     android:onClick="@{v->vm.onClick(v)}"
                     android:padding="@dimen/_5sdp"
                     android:src="@drawable/ic_baseline_edit_24"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/sivProfile"
                     app:layout_constraintEnd_toEndOf="@+id/sivProfile" />
 
@@ -114,23 +115,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/sivProfile" />
 
                 <EditText
-                    android:id="@+id/etProductName"
+                    android:id="@+id/etName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
-                    android:backgroundTint="@color/gray_f2"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    android:background="@drawable/background_10_rounded_highligh_5"
                     android:gravity="center_vertical"
-                    android:hint="@string/enter_name"
                     android:imeOptions="actionNext"
                     android:inputType="textCapWords"
                     android:onClick="@{v->vm.onClick(v)}"
                     android:padding="@dimen/_13sdp"
-                    android:text="@{bean.name}"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -148,23 +144,20 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etProductName" />
+                    app:layout_constraintTop_toBottomOf="@+id/etName" />
 
 
                 <EditText
-                    android:id="@+id/etProductDescription"
+                    android:id="@+id/etLastName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
-                    android:backgroundTint="@color/gray_f2"
+                    android:background="@drawable/background_10_rounded_highligh_5"
                     android:gravity="start"
-                    android:hint="Enter Description"
                     android:imeOptions="actionNext"
                     android:padding="@dimen/_13sdp"
-                    android:text="@{bean.description}"
                     android:textAlignment="viewStart"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -184,23 +177,20 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etProductDescription" />
+                    app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 
                 <EditText
-                    android:id="@+id/etNormalPrice"
+                    android:id="@+id/etPhoneNumber"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
-                    android:backgroundTint="@color/gray_f2"
+                    android:background="@drawable/background_10_rounded_highligh_5"
                     android:gravity="center_vertical"
-                    android:hint="Normal Price"
                     android:imeOptions="actionNext"
                     android:inputType="phone"
                     android:padding="@dimen/_13sdp"
-                    android:text="@{bean.regular_price.toString()}"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -215,19 +205,21 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
-                    android:backgroundTint="@color/gray_f2"
+                    android:background="@drawable/background_10_rounded_highligh_clr"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/montserrat_medium"
                     android:gravity="start"
-                    android:hint="Pick your current location"
+                    android:hint="Pick Your Current Location"
                     android:imeOptions="actionNext"
                     android:inputType="numberDecimal"
-
                     android:padding="@dimen/_13sdp"
-                    android:text="@{bean.sale_price.toString()}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etNormalPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
                     tools:ignore="UnusedAttribute" />
 
                 <ImageView
@@ -236,7 +228,7 @@
                     android:layout_marginVertical="@dimen/_2sdp"
                     android:padding="@dimen/_10sdp"
                     android:src="@drawable/location_icon"
-                    android:tint="@color/colorPrimary"
+                    android:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="@id/etLocation"
                     app:layout_constraintEnd_toEndOf="@+id/etLocation"
                     app:layout_constraintTop_toTopOf="@id/etLocation" />
@@ -254,20 +246,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/etLocation" />
 
                 <EditText
-                    android:id="@+id/etSalePrice"
+                    android:id="@+id/etPostCode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
-                    android:backgroundTint="@color/gray_f2"
+                    android:background="@drawable/background_10_rounded_highligh_5"
                     android:gravity="start"
-                    android:hint="Sale Price"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:padding="@dimen/_13sdp"
-                    android:text="@{bean.sale_price.toString()}"
                     android:textSize="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -292,7 +281,7 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etSalePrice" />
+                    app:layout_constraintTop_toBottomOf="@+id/etPostCode" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -301,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/background_10_rounded"
+                    android:background="@drawable/background_10_rounded_highligh_5"
                     android:orientation="horizontal"
                     android:padding="@dimen/_13sdp"
                     android:visibility="gone"
@@ -314,12 +303,13 @@
                 <TextView
                     android:id="@+id/tvCreate"
                     style="@style/Button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:paddingHorizontal="@dimen/_6sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="Create"
                     android:textColor="@color/white"
@@ -327,6 +317,22 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rvMembers" />
+
+                <!-- <TextView
+                     android:id="@+id/tvGetStarted"
+                     style="@style/Button"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_marginHorizontal="@dimen/_10sdp"
+                     android:layout_marginBottom="@dimen/_15sdp"
+                     android:backgroundTint="@color/colorPrimary"
+                     android:onClick="@{v->vm.onClick(v)}"
+                     android:paddingHorizontal="@dimen/_6sdp"
+                     android:paddingVertical="@dimen/_10sdp"
+                     android:text="Get Started"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintStart_toStartOf="parent" />-->
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

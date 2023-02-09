@@ -10,6 +10,8 @@
     <external-files-path
         name="external_files"
         path="." />
+    <external-path name="my_images"
+        path="Android/data/com.example.package.name/files/Pictures" />
     <cache-path
         name="cache"
         path="." />

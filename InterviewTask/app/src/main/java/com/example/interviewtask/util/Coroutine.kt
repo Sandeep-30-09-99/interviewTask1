@@ -1,6 +1,5 @@
 package com.example.interviewtask.util
 
-import com.example.interviewtask.model.Product
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

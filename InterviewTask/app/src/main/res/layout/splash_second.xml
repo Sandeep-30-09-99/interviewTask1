@@ -18,24 +18,6 @@
         tools:context=".ui.MainActivity">
 
 
-        <!-- <com.hbb20.CountryCodePicker
-             android:id="@+id/ccp"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginStart="@dimen/_10sdp"
-             android:elevation="@dimen/_2sdp"
-             app:ccp_contentColor="@color/black"
-             app:ccp_countryPreference="+234"
-             app:ccp_defaultPhoneCode="234"
-             app:ccp_showFlag="false"
-             app:ccp_showNameCode="false"
-             app:ccp_showPhoneCode="true"
-             app:ccp_textSize="@dimen/_12sdp"
-             app:layout_constraintBottom_toBottomOf="@id/tvPhone"
-             app:layout_constraintStart_toStartOf="@+id/tvPhone"
-             app:layout_constraintTop_toTopOf="@id/tvPhone" />-->
-
-
         <ImageView
             android:id="@+id/ivLogo"
             android:layout_width="0dp"
@@ -60,9 +42,10 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:padding="@dimen/_6sdp"
             android:text="@string/best_mrk"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -71,10 +54,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_15sdp"
-            android:paddingHorizontal="@dimen/_15sdp"
+            android:fontFamily="@font/inter_medium"
+            android:paddingHorizontal="@dimen/_35sdp"
             android:paddingVertical="@dimen/_6sdp"
             android:text="@string/app_description"
             android:textColor="@color/black_02"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBestMarket" />
@@ -83,12 +69,14 @@
         <TextView
             android:id="@+id/tvGetStarted"
             style="@style/Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_15sdp"
-
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="@{v->vm.onClick(v)}"
-            android:padding="@dimen/_6sdp"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_10sdp"
             android:text="Get Started"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

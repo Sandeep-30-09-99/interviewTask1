@@ -28,17 +28,23 @@ class LoginActivity : AppCompatActivity() {
             return intent
         }
     }
+
     private lateinit var binding: LayoutLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LayoutLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.vm = viewModel
+        binding.ccp.overrideClickListener { }
         listenClick()
     }
 
     private fun listenClick() {
         viewModel.onClick.observe(this, Observer {
             when (it.id) {
+                R.id.ivBack -> {
+                    onBackPressedDispatcher.onBackPressed()
+                }
                 R.id.tvRequestOtp -> {
                     if (!isEmptyField()) {
                         initDialog(getCodeFromPhoneNo(binding.tvPhone.text.toString()))
@@ -50,19 +56,24 @@ class LoginActivity : AppCompatActivity() {
 
     private var codeDialog: BaseCustomDialog<LayoutCodeBinding>? = null
     private fun initDialog(code: String) {
-        codeDialog = BaseCustomDialog(this, R.layout.layout_code) {
-            when (it.id) {
-                R.id.tvOk -> {
-                    codeDialog?.cancel()
-                    goToVerifyActivity()
+        if (codeDialog == null) {
+            codeDialog = BaseCustomDialog(this, R.layout.layout_code) {
+                when (it.id) {
+                    R.id.tvOk -> {
+                        codeDialog?.cancel()
+                        goToVerifyActivity()
+                    }
                 }
             }
         }
+
         codeDialog?.binding?.otpView?.setText(code)
         codeDialog?.setOnDismissListener {
             goToVerifyActivity()
         }
         codeDialog?.setCancelable(true)
+        codeDialog?.dismiss()
+        codeDialog?.show()
     }
 
     private fun goToVerifyActivity() {

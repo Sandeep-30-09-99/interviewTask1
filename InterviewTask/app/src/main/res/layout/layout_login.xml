@@ -21,7 +21,7 @@
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_margin="@dimen/_10sdp"
-
+android:id="@+id/ivBack"
             android:onClick="@{v->vm.onClick(v)}"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,9 +59,11 @@
         <com.hbb20.CountryCodePicker
             android:id="@+id/ccp"
             android:layout_width="wrap_content"
+
+
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:elevation="@dimen/_2sdp"
             app:ccp_contentColor="@color/black"
             app:ccp_countryPreference="+91"
@@ -78,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:background="@drawable/background_10_rounded"
             android:backgroundTint="@color/gray_f2"
             android:drawablePadding="@dimen/_5sdp"
@@ -87,10 +89,10 @@
             android:inputType="phone"
             android:maxLength="10"
             android:padding="@dimen/_13sdp"
-            android:paddingStart="@dimen/_45sdp"
             android:textAlignment="center"
             android:textSize="@dimen/_14sdp"
             app:layout_constraintBottom_toBottomOf="@+id/ccp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/ccp"
             app:layout_constraintTop_toTopOf="@id/ccp" />
@@ -99,24 +101,30 @@
         <TextView
             android:id="@+id/tvRequestOtp"
             style="@style/Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="@{v->vm.onClick(v)}"
-            android:padding="@dimen/_6sdp"
+            android:paddingHorizontal="@dimen/_6sdp"
+            android:paddingVertical="@dimen/_10sdp"
             android:text="Request Otp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
 
         <TextView
             android:id="@+id/txtLoginwith"
             style="@style/TextView.Regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="Login with"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRequestOtp" />
@@ -147,10 +155,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
             android:text="Google"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintEnd_toStartOf="@+id/center"
             app:layout_constraintTop_toBottomOf="@+id/txtLoginwith" />
 
@@ -159,7 +167,7 @@
             android:id="@+id/fLogo"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:src="@drawable/fb"
             app:layout_constraintBottom_toBottomOf="@+id/txtGoogle"
             app:layout_constraintStart_toEndOf="@+id/center"
@@ -181,15 +189,17 @@
         <TextView
             android:id="@+id/passcode"
             style="@style/TextView.Regular"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:fontFamily="@font/montserrat_medium"
             android:text="@string/term_and_cond"
             android:textAlignment="center"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtGoogle" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -21,9 +21,8 @@ import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.interviewtask.R
-import com.example.interviewtask.ui.AdapterCallback
-import com.example.interviewtask.databinding.ActivityMainBinding
 import com.example.interviewtask.databinding.ActivitySplashBinding
+import com.example.interviewtask.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -38,11 +37,13 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.vm = viewModel
         changeLayout()
 
         viewModel.onClick.observe(this, Observer {
             when (it.id) {
                 R.id.tvGetStarted -> {
+                    startActivity(LoginActivity.intent(this))
                 }
             }
         })
