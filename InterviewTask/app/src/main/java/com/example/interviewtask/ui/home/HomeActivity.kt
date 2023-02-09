@@ -16,7 +16,6 @@ import com.example.interviewtask.ui.ProductAdapter
 
 import com.example.interviewtask.model.Product
 import com.example.interviewtask.ui.create_product.CreateProductActivity
-import com.example.interviewtask.ui.show_product.ShowProductActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -40,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         viewModel.onClick.observe(this, Observer {
             when (it.id) {
                 R.id.show_product -> {
-                    startActivity(ShowProductActivity.intent(this))
+                 //   startActivity(ShowProductActivity.intent(this))
                 }
                 R.id.create_product -> {
                     startActivity(CreateProductActivity.intent(this))
