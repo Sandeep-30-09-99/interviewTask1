@@ -59,10 +59,12 @@ class LoginActivity : AppCompatActivity() {
         if (codeDialog == null) {
             codeDialog = BaseCustomDialog(this, R.layout.layout_code) {
                 when (it.id) {
-                    R.id.tvOk -> {
+                     R.id.tvTitle, R.id.otpView -> {
                         codeDialog?.cancel()
                         goToVerifyActivity()
                     }
+
+
                 }
             }
         }

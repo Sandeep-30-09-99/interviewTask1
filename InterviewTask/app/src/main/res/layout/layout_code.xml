@@ -47,6 +47,8 @@
             android:textColor="@color/colorPrimary"
             app:OtpCursorColor="@color/colorPrimary"
             app:OtpItemCount="4"
+            android:onClick="@{v->callback.onViewClick(v)}"
+
             app:OtpItemHeight="@dimen/_42sdp"
             app:OtpItemRadius="@dimen/_10sdp"
             app:OtpItemSpacing="10dp"
